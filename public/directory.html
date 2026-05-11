@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Directory â Hawaii Discovery Hub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content">
+    <section class="filters">
+      <input id="search" type="search" placeholder="Search by name or description" />
+      <select id="island">
+        <option value="">All islands</option>
+        <option>Oahu</option>
+        <option>Maui</option>
+        <option>Big Island</option>
+        <option>Kauai</option>
+        <option>Molokai</option>
+        <option>Lanai</option>
+      </select>
+      <select id="category">
+        <option value="">All categories</option>
+        <option>Restaurants</option>
+        <option>Food &amp; Drink</option>
+        <option>Activities</option>
+        <option>Tours</option>
+        <option>Attractions</option>
+        <option>Shops</option>
+        <option>Services</option>
+      </select>
+      <button class="btn btn-primary" onclick="loadListings()">Apply filters</button>
+    </section>
+
+    <section>
+      <div id="grid" class="listing-grid"></div>
+      <p id="emptyMsg" style="text-align:center;color:var(--text-secondary);display:none;padding:2rem;">No listings match those filters.</p>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/shared.js"></script>
+  <script src="/js/partials.js"></script>
+  <script>
+    function readQueryString() {
+      const p = new URLSearchParams(window.location.search);
+      if (p.get('search')) document.getElementById('search').value = p.get('search');
+      if (p.get('island')) document.getElementById('island').value = p.get('island');
+      if (p.get('category')) document.getElementById('category').value = p.get('category');
+    }
+
+    async function loadListings() {
+      const filters = {
+        search: document.getElementById('search').value.trim(),
+        island: document.getElementById('island').value,
+        category: document.getElementById('category').value,
+        limit: 50
+      };
+      const grid = document.getElementById('grid');
+      const empty = document.getElementById('emptyMsg');
+      grid.innerHTML = '<p style="padding:1rem;color:var(--text-secondary)">Loadingâ¦</p>';
+      empty.style.display = 'none';
+      try {
+        const res = await api.getListings(filters);
+        if (!res.ok) throw new Error('request failed');
+        const { data } = await res.json();
+        if (!data.length) {
+          grid.innerHTML = '';
+          empty.style.display = 'block';
+          return;
+        }
+        grid.innerHTML = data.map(b => `
+          <article class="listing-card">
+            <span class="pill">${escapeHtml(b.island || 'Hawaii')}</span>
+            <h3>${escapeHtml(b.name)}</h3>
+            <div class="meta">${escapeHtml(b.category || '')} Â· <span class="rating">â ${b.rating || 'â'}</span> (${b.review_count || 0})</div>
+            <p class="desc">${escapeHtml(b.description || '')}</p>
+            <div class="meta">${b.phone ? `<a href="tel:${escapeHtml(b.phone)}">${escapeHtml(b.phone)}</a>` : ''}
+              ${b.website ? ` Â· <a href="${escapeHtml(b.website)}" target="_blank" rel="noopener">Website</a>` : ''}</div>
+          </article>
+        `).join('');
+      } catch (e) {
+        grid.innerHTML = '<p style="color:#b3261e;padding:1rem;">Could not load listings. Check the API/database connection.</p>';
+      }
+    }
+
+    readQueryString();
+    loadListings();
+  </script>
+</body>
+</html>
