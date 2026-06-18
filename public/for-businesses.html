@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Businesses — Hawaii Discovery Hub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content">
+    <section class="hero" style="padding: 4rem 1.5rem;">
+      <h1>List your business on Hawaii Discovery Hub</h1>
+      <p>Get discovered by travelers and locals. Three plans, simple monthly billing, cancel anytime.</p>
+      <a class="btn btn-primary btn-lg" href="/register.html">Get started — it's free</a>
+    </section>
+
+    <section class="section">
+      <h2 style="text-align:center;">Plans &amp; pricing</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <div class="price">$0<span style="font-size:1rem;color:var(--text-secondary);">/mo</span></div>
+          <ul>
+            <li>Basic listing</li>
+            <li>Searchable in directory</li>
+            <li>1 business</li>
+          </ul>
+          <a class="btn btn-secondary" href="/register.html">Sign up free</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <h3>Standard</h3>
+          <div class="price">$49<span style="font-size:1rem;color:var(--text-secondary);">/mo</span></div>
+          <ul>
+            <li>Everything in Free</li>
+            <li>Photos and full description</li>
+            <li>Social links and hours</li>
+            <li>Up to 3 businesses</li>
+          </ul>
+          <button class="btn btn-primary" onclick="checkout('standard','monthly')">Choose Standard</button>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Aloha Pro</h3>
+          <div class="price">$99<span style="font-size:1rem;color:var(--text-secondary);">/mo</span></div>
+          <ul>
+            <li>Everything in Standard</li>
+            <li>Featured placement</li>
+            <li>Verified badge</li>
+            <li>Unlimited businesses</li>
+          </ul>
+          <button class="btn btn-primary" onclick="checkout('aloha-pro','monthly')">Go Aloha Pro</button>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:var(--text-secondary);margin-top:1rem;">
+        Annual plans save ~15% — switch to annual from the dashboard after signing up.
+      </p>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/shared.js"></script>
+  <script src="/js/partials.js"></script>
+  <script>
+    async function checkout(tier, period) {
+      const u = currentUser();
+      if (!u) {
+        showToast('Sign up first, then pick a plan.', 'info');
+        setTimeout(() => window.location.href = '/register.html', 800);
+        return;
+      }
+      // The user needs at least one business; redirect to dashboard for the rest of the flow
+      window.location.href = `/dashboard.html?upgrade=${tier}&period=${period}`;
+    }
+  </script>
+</body>
+</html>

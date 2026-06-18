@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hawaii Discovery Hub — Local businesses across the islands</title>
+  <meta name="description" content="Discover the best local businesses across the Hawaiian islands — restaurants, tours, shops, and more." />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content">
+    <section class="hero">
+      <h1>Discover the islands, from locals.</h1>
+      <p>A directory of trusted Hawaiian businesses — restaurants, tours, shops, and services — handpicked across all the islands.</p>
+      <form class="search" onsubmit="goSearch(event)">
+        <input id="searchInput" type="search" placeholder="Search businesses, e.g. 'shave ice', 'snorkel'..." />
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </section>
+
+    <section class="section">
+      <h2>Featured listings</h2>
+      <div id="featuredGrid" class="listing-grid" style="padding: 0;"></div>
+      <p style="margin-top: 1.25rem;"><a href="/directory.html">Browse the full directory →</a></p>
+    </section>
+
+    <section class="section" style="background: var(--gray-50); border-radius: 12px;">
+      <h2>Own a Hawaiian business?</h2>
+      <p>List your business on Hawaii Discovery Hub and reach travelers and locals looking for the real thing.</p>
+      <a class="btn btn-primary btn-lg" href="/for-businesses.html">List your business</a>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/shared.js"></script>
+  <script src="/js/partials.js"></script>
+  <script>
+    function goSearch(e) {
+      e.preventDefault();
+      const q = document.getElementById('searchInput').value.trim();
+      window.location.href = '/directory.html' + (q ? `?search=${encodeURIComponent(q)}` : '');
+    }
+
+    async function loadFeatured() {
+      try {
+        const res = await api.getListings({ limit: 6 });
+        if (!res.ok) return;
+        const { data } = await res.json();
+        const grid = document.getElementById('featuredGrid');
+        grid.innerHTML = data.map(b => `
+          <article class="listing-card">
+            <span class="pill">${escapeHtml(b.island || 'Hawaii')}</span>
+            <h3>${escapeHtml(b.name)}</h3>
+            <div class="meta">${escapeHtml(b.category || '')} · <span class="rating">★ ${b.rating || '–'}</span> (${b.review_count || 0})</div>
+            <p class="desc">${escapeHtml((b.description || '').slice(0, 140))}${(b.description || '').length > 140 ? '…' : ''}</p>
+            <a class="btn btn-secondary" href="/directory.html?search=${encodeURIComponent(b.name)}">View details</a>
+          </article>
+        `).join('') || '<p>No listings yet — check back soon.</p>';
+      } catch (e) {
+        document.getElementById('featuredGrid').innerHTML =
+          '<p style="color:var(--text-secondary)">Could not load listings (is the database connected?).</p>';
+      }
+    }
+    loadFeatured();
+  </script>
+</body>
+</html>

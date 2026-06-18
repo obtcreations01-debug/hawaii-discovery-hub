@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Hawaii Discovery Hub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .dashboard-container {
+      display: grid; grid-template-columns: 250px 1fr; gap: 2rem;
+      max-width: 1400px; margin: 2rem auto; padding: 0 1rem;
+    }
+    .dashboard-sidebar { background: var(--gray-50); border-radius: 8px; padding: 1.5rem; height: fit-content; }
+    .dashboard-sidebar a {
+      display: block; padding: 0.65rem 1rem; margin: 0.25rem 0;
+      border-radius: 6px; color: var(--text-secondary);
+    }
+    .dashboard-sidebar a:hover, .dashboard-sidebar a.active {
+      background: var(--ocean-blue); color: white; text-decoration: none;
+    }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+    .business-card {
+      background: white; border: 1px solid var(--gray-200); border-radius: 8px;
+      padding: 1.25rem; margin: 1rem 0;
+    }
+    @media (max-width: 700px) {
+      .dashboard-container { grid-template-columns: 1fr; }
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content" class="dashboard-container">
+    <aside class="dashboard-sidebar">
+      <nav>
+        <a href="#" class="nav-item active" data-section="overview" onclick="showSection(event,'overview')">Overview</a>
+        <a href="#" class="nav-item" data-section="businesses" onclick="showSection(event,'businesses')">My businesses</a>
+        <a href="#" class="nav-item" data-section="billing" onclick="showSection(event,'billing')">Billing</a>
+        <hr />
+        <a href="#" onclick="event.preventDefault(); logout();">Log out</a>
+      </nav>
+    </aside>
+
+    <section class="dashboard-content">
+      <section id="overview" class="dashboard-section">
+        <h1>Dashboard</h1>
+        <p id="welcomeMessage"></p>
+        <div class="stat-grid">
+          <div class="business-card"><h3>Active listings</h3><p style="font-size:2rem;color:var(--ocean-blue);" id="activeCount">–</p></div>
+          <div class="business-card"><h3>Businesses</h3><p style="font-size:2rem;color:var(--ocean-blue);" id="businessCount">–</p></div>
+          <div class="business-card"><h3>Plan</h3><p id="currentPlan">–</p></div>
+        </div>
+      </section>
+
+      <section id="businesses" class="dashboard-section" style="display:none;">
+        <h1>My businesses</h1>
+        <button class="btn btn-primary" onclick="showNewBusinessForm()">+ Add a business</button>
+        <div id="newBusinessForm" style="display:none;margin:1rem 0;background:#fff;border:1px solid var(--gray-200);border-radius:8px;padding:1.25rem;">
+          <form onsubmit="handleAddBusiness(event)">
+            <div class="form-group"><label>Name</label><input id="bizName" required /></div>
+            <div class="form-group"><label>Description</label><textarea id="bizDescription" rows="3"></textarea></div>
+            <div class="form-group"><label>Category</label>
+              <select id="bizCategory">
+                <option>Restaurants</option><option>Food &amp; Drink</option>
+                <option>Activities</option><option>Tours</option>
+                <option>Attractions</option><option>Shops</option>
+                <option>Services</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Island</label>
+              <select id="bizIsland">
+                <option>Oahu</option><option>Maui</option><option>Big Island</option>
+                <option>Kauai</option><option>Molokai</option><option>Lanai</option>
+              </select>
+            </div>
+            <div class="form-group"><label>City</label><input id="bizCity" /></div>
+            <div class="form-group"><label>Phone</label><input id="bizPhone" /></div>
+            <div class="form-group"><label>Email</label><input id="bizEmail" type="email" /></div>
+            <div class="form-group"><label>Website</label><input id="bizWebsite" type="url" /></div>
+            <button class="btn btn-primary" type="submit">Save business</button>
+            <button class="btn btn-secondary" type="button" onclick="document.getElementById('newBusinessForm').style.display='none'">Cancel</button>
+          </form>
+        </div>
+        <div id="businessesList"></div>
+      </section>
+
+      <section id="billing" class="dashboard-section" style="display:none;">
+        <h1>Billing</h1>
+        <p>Stripe handles payments. Pick a plan and you'll be redirected to a secure Stripe checkout.</p>
+        <div id="billingActions"></div>
+        <p style="color:var(--text-secondary);margin-top:1rem;">
+          Note: payments require <code>STRIPE_SECRET_KEY</code> to be configured on the server.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/shared.js"></script>
+  <script src="/js/partials.js"></script>
+  <script>
+    let myBusinesses = [];
+
+    function showSection(e, id) {
+      if (e) e.preventDefault();
+      document.querySelectorAll('.dashboard-section').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      document.querySelectorAll('.nav-item').forEach(a => a.classList.toggle('active', a.dataset.section === id));
+    }
+    function showNewBusinessForm() {
+      document.getElementById('newBusinessForm').style.display = 'block';
+    }
+
+    async function loadDashboard() {
+      const u = requireAuth();
+      if (!u) return;
+      document.getElementById('welcomeMessage').textContent = `Welcome back, ${u.firstName || 'business owner'}!`;
+      try {
+        const res = await api.getMyBusinesses();
+        if (!res.ok) throw new Error('failed');
+        myBusinesses = await res.json();
+        document.getElementById('businessCount').textContent = myBusinesses.length;
+        document.getElementById('activeCount').textContent =
+          myBusinesses.filter(b => b.listing && b.listing.status === 'active').length;
+        const tiers = myBusinesses.map(b => b.listing && b.listing.tier).filter(Boolean);
+        document.getElementById('currentPlan').textContent = tiers.length ? [...new Set(tiers)].join(', ') : 'Free';
+        renderBusinessesList();
+        renderBillingActions();
+        handleUpgradeQueryString();
+      } catch (e) {
+        document.getElementById('welcomeMessage').textContent +=
+          ' (Could not load businesses — is the database connected?)';
+      }
+    }
+
+    function renderBusinessesList() {
+      const el = document.getElementById('businessesList');
+      if (!myBusinesses.length) {
+        el.innerHTML = '<p style="color:var(--text-secondary);margin-top:1rem;">No businesses yet. Add one above to get started.</p>';
+        return;
+      }
+      el.innerHTML = myBusinesses.map(b => `
+        <div class="business-card">
+          <h3 style="margin:0 0 0.25rem;">${escapeHtml(b.name)}</h3>
+          <div style="color:var(--text-secondary);font-size:0.9rem;">${escapeHtml(b.island || '')} · ${escapeHtml(b.category || '')}</div>
+          <p>${escapeHtml(b.description || '')}</p>
+          <div style="font-size:0.85rem;color:var(--text-secondary);">
+            Listing: ${b.listing ? `${escapeHtml(b.listing.tier)} (${escapeHtml(b.listing.status)})` : 'none'}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderBillingActions() {
+      const el = document.getElementById('billingActions');
+      if (!myBusinesses.length) {
+        el.innerHTML = '<p>Add a business first, then come back to subscribe.</p>';
+        return;
+      }
+      el.innerHTML = `
+        <p>Choose a business and a plan:</p>
+        <select id="payBiz">${myBusinesses.map(b => `<option value="${b.id}">${escapeHtml(b.name)}</option>`).join('')}</select>
+        <select id="payTier"><option value="standard">Standard – $49/mo</option><option value="aloha-pro">Aloha Pro – $99/mo</option></select>
+        <select id="payPeriod"><option value="monthly">Monthly</option><option value="annual">Annual</option></select>
+        <button class="btn btn-primary" onclick="startCheckout()">Upgrade</button>
+      `;
+    }
+
+    async function startCheckout(prefill) {
+      const businessId = (prefill && prefill.businessId) || parseInt(document.getElementById('payBiz').value, 10);
+      const tier = (prefill && prefill.tier) || document.getElementById('payTier').value;
+      const period = (prefill && prefill.period) || document.getElementById('payPeriod').value;
+      try {
+        const res = await api.createCheckout(businessId, tier, period);
+        const data = await res.json();
+        if (!res.ok) { showToast(data.error || 'Checkout failed', 'error'); return; }
+        if (data.url) window.location.href = data.url;
+        else showToast('Stripe session created (no redirect URL).', 'info');
+      } catch (e) { showToast('Network error', 'error'); }
+    }
+
+    function handleUpgradeQueryString() {
+      const p = new URLSearchParams(window.location.search);
+      const tier = p.get('upgrade'), period = p.get('period');
+      if (tier && myBusinesses[0]) {
+        showSection(null, 'billing');
+        showToast('Pick which business to upgrade.', 'info');
+      }
+    }
+
+    async function handleAddBusiness(event) {
+      event.preventDefault();
+      const payload = {
+        name: document.getElementById('bizName').value,
+        description: document.getElementById('bizDescription').value,
+        category: document.getElementById('bizCategory').value,
+        island: document.getElementById('bizIsland').value,
+        city: document.getElementById('bizCity').value,
+        phone: document.getElementById('bizPhone').value,
+        email: document.getElementById('bizEmail').value,
+        website: document.getElementById('bizWebsite').value
+      };
+      try {
+        const res = await api.createBusiness(payload);
+        const data = await res.json();
+        if (!res.ok) { showToast(data.error || 'Could not save', 'error'); return; }
+        showToast('Business added!', 'success');
+        document.getElementById('newBusinessForm').style.display = 'none';
+        await loadDashboard();
+      } catch (e) { showToast('Network error', 'error'); }
+    }
+
+    loadDashboard();
+  </script>
+</body>
+</html>

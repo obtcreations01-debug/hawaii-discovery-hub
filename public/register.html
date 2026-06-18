@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up — Hawaii Discovery Hub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content">
+    <div class="auth-container">
+      <h1>Create your account</h1>
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" required />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" required />
+        </div>
+        <div class="form-group">
+          <label for="companyName">Company (optional)</label>
+          <input type="text" id="companyName" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password (min. 6 chars)</label>
+          <input type="password" id="password" required minlength="6" />
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit" style="width:100%;">Create account</button>
+      </form>
+      <p class="auth-switch">Already have an account? <a href="/login.html">Log in</a></p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/shared.js"></script>
+  <script src="/js/partials.js"></script>
+  <script>
+    async function handleRegister(event) {
+      event.preventDefault();
+      const payload = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        companyName: document.getElementById('companyName').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      };
+      try {
+        const res = await api.register(payload);
+        const data = await res.json();
+        if (!res.ok) { showToast(data.error || 'Sign up failed', 'error'); return; }
+        api.setToken(data.accessToken);
+        localStorage.setItem('refreshToken', data.refreshToken);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        showToast('Account created!', 'success');
+        setTimeout(() => window.location.href = '/dashboard.html', 600);
+      } catch (e) {
+        showToast('Network error', 'error');
+      }
+    }
+  </script>
+</body>
+</html>
