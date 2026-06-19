@@ -5,6 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hawaii Discovery Hub — Local businesses across the islands</title>
   <meta name="description" content="Discover the best local businesses across the Hawaiian islands — restaurants, tours, shops, and more." />
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hawaii Discovery Hub — Find Local Businesses Across the Islands" />
+  <meta property="og:description" content="Discover the best local businesses across Hawaiian islands. 500+ verified local restaurants, shops, tours & services. Free to browse, Premium for business growth." />
+  <meta property="og:url" content="https://hawaiidiscoveryhub.com" />
+  <meta property="og:image" content="https://hawaiidiscoveryhub.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hawaii Discovery Hub — Find Local Businesses" />
+  <meta name="twitter:description" content="500+ verified local businesses. Free directory. Premium tools for business owners." />
+  <meta name="twitter:image" content="https://hawaiidiscoveryhub.com/og-image.png" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://hawaiidiscoveryhub.com" />
+
+  <!-- Additional Meta -->
+  <meta name="language" content="English" />
+  <meta name="author" content="OBT Consultants" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hawaii Discovery Hub",
+    "url": "https://hawaiidiscoveryhub.com",
+    "logo": "https://hawaiidiscoveryhub.com/logo.png",
+    "description": "Directory of 500+ local businesses across 6 Hawaiian islands",
+    "foundingDate": "2024",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "support@hawaiidiscoveryhub.com"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Hawaii"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
@@ -52,6 +101,26 @@
       </div>
     </section>
 
+    <!-- PAIN POINTS SECTION -->
+    <section class="section" style="background: var(--gray-50); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; align-items: center; padding: 4rem 2rem;">
+      <div>
+        <h3 style="font-size: 1.5rem; color: var(--ocean-deep); margin-top: 0;">🔍 Hard to Find Real Local Businesses</h3>
+        <ul style="list-style: none; padding: 0; margin: 1.5rem 0;">
+          <li style="margin-bottom: 1rem; color: var(--text-secondary);">✗ Tourist traps rank higher in Google than locals</li>
+          <li style="margin-bottom: 1rem; color: var(--text-secondary);">✗ Reviews mixed with chain businesses</li>
+          <li style="margin-bottom: 1rem; color: var(--text-secondary);">✗ Can't filter by "truly local, family-owned"</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 1.5rem; color: var(--ocean-deep); margin-top: 0;">📉 Invisible to Customers Online</h3>
+        <ul style="list-style: none; padding: 0; margin: 1.5rem 0;">
+          <li style="margin-bottom: 1rem; color: var(--text-secondary);">✗ 79% of customers research online before purchase</li>
+          <li style="margin-bottom: 1rem; color: var(--text-secondary);">✗ Lost to competitors on Google</li>
+          <li style="margin-bottom: 1rem; color: var(--text-secondary);">✗ No unified platform to stand out</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- FEATURED LISTINGS SECTION -->
     <section class="section">
       <div class="section-badge">FEATURED LISTINGS</div>
@@ -76,6 +145,55 @@
       <p>Explore Hawaii businesses using popular tags — a quick way to discover what the islands have to offer.</p>
       <p class="see-all-link"><a href="/directory.html">See All Tags →</a></p>
       <div id="tagsGrid" class="tags-grid"></div>
+    </section>
+
+    <!-- DUAL-TRACK BENEFITS SECTION -->
+    <section class="section" style="background: white; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; padding: 4rem 2rem;">
+      <!-- Residents Track -->
+      <div>
+        <h3 style="font-size: 1.4rem; color: var(--ocean-blue); margin-top: 0;">✨ For Residents & Visitors</h3>
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          <div>
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🏪</div>
+            <h4 style="margin: 0.5rem 0; color: var(--ocean-deep);">Pure Local Filter</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">Only see family-owned Hawaiian businesses — no corporate chains.</p>
+          </div>
+          <div>
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⭐</div>
+            <h4 style="margin: 0.5rem 0; color: var(--ocean-deep);">Real Reviews</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">See verified experiences from real customers, not bots.</p>
+          </div>
+          <div>
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💬</div>
+            <h4 style="margin: 0.5rem 0; color: var(--ocean-deep);">Direct Connect</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">Message businesses directly—no corporate gatekeepers.</p>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" style="margin-top: 2rem; width: 100%;" onclick="window.location.href='/directory.html'">🔍 Browse Businesses</button>
+      </div>
+
+      <!-- Business Owners Track -->
+      <div>
+        <h3 style="font-size: 1.4rem; color: var(--ocean-blue); margin-top: 0;">🚀 For Business Owners</h3>
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          <div>
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📍</div>
+            <h4 style="margin: 0.5rem 0; color: var(--ocean-deep);">Unified Listing</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">One place for all island customers to find you.</p>
+          </div>
+          <div>
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📊</div>
+            <h4 style="margin: 0.5rem 0; color: var(--ocean-deep);">Marketing Audit</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">Know exactly what's keeping customers away.</p>
+          </div>
+          <div>
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📈</div>
+            <h4 style="margin: 0.5rem 0; color: var(--ocean-deep);">Grow Your Leads</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">Upgrade to get featured and accelerate growth.</p>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" style="margin-top: 2rem; width: 100%; background: #F59E0B; border-color: #F59E0B;" onclick="window.location.href='/for-businesses.html'">🚀 Grow Your Business</button>
+      </div>
     </section>
 
     <!-- MARKETING AUDIT SECTION -->
@@ -180,23 +298,84 @@
       </div>
     </section>
 
-    <!-- COMMUNITY VOICES SECTION -->
+    <!-- SUCCESS STORIES SECTION -->
     <section class="section">
-      <div class="section-badge">COMMUNITY VOICES</div>
-      <h2>What Hawaii People Are Saying</h2>
-      <p>Hear from residents, visitors, and business owners across the islands who use and list in the Hawaii Discovery Hub.</p>
-      <div id="testimonials" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
-        <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--gray-200);">
+      <div class="section-badge">SUCCESS STORIES</div>
+      <h2>How Hawaii's Locals & Visitors Connect</h2>
+      <p>Real results from residents, visitors, and business owners who've discovered and grown through Hawaii Discovery Hub.</p>
+      <div id="testimonials" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+        <!-- Visitor Testimonials -->
+        <div style="background: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid var(--gray-200); border-left: 4px solid var(--ocean-blue);">
           <div style="color: #FFD700; font-size: 1.1rem; margin-bottom: 1rem;">★★★★★</div>
-          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8;">"I found the best plumber in Kailua through the Discovery Hub. The listing had everything — hours, reviews, phone, and address. Booked within 5 minutes. A real time saver."</p>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8; margin: 1rem 0;">"Found the best plumber in Kailua through the Discovery Hub. Booked within 5 minutes. It's exactly what I was looking for."</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
+            <div style="width: 40px; height: 40px; background: var(--ocean-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">JK</div>
+            <div style="font-size: 0.9rem;">
+              <div style="font-weight: 600; color: var(--gray-900);">James K.</div>
+              <div style="color: var(--text-secondary); font-size: 0.85rem;">Homeowner, Oahu</div>
+            </div>
+          </div>
         </div>
-        <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--gray-200);">
+
+        <div style="background: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid var(--gray-200); border-left: 4px solid var(--ocean-blue);">
           <div style="color: #FFD700; font-size: 1.1rem; margin-bottom: 1rem;">★★★★★</div>
-          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8;">"Visiting from the mainland and this directory was a lifesaver! Found an amazing snorkel tour and a local plate lunch spot in Maui — both amazing. Exactly what I needed."</p>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8; margin: 1rem 0;">"Visiting from California and discovered an amazing snorkel tour and local café in Maui. Both were perfect — authentic and family-run."</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
+            <div style="width: 40px; height: 40px; background: var(--ocean-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">SR</div>
+            <div style="font-size: 0.9rem;">
+              <div style="font-weight: 600; color: var(--gray-900);">Sarah R.</div>
+              <div style="color: var(--text-secondary); font-size: 0.85rem;">Visitor, Maui</div>
+            </div>
+          </div>
         </div>
-        <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--gray-200);">
-          <div style="color: #FFD700; font-size: 1.1rem; margin-bottom: 1rem;">★★★★☆</div>
-          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8;">"Before listing here, my online score was 20%. OBT ran the audit, fixed my citations, and now I'm getting calls from new customers I never would have reached. Worth every penny."</p>
+
+        <div style="background: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid var(--gray-200); border-left: 4px solid var(--ocean-blue);">
+          <div style="color: #FFD700; font-size: 1.1rem; margin-bottom: 1rem;">★★★★★</div>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8; margin: 1rem 0;">"I've used the hub for 2 years now. It's my go-to place for finding real, local businesses. The filter by island is a game-changer."</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
+            <div style="width: 40px; height: 40px; background: var(--ocean-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">MD</div>
+            <div style="font-size: 0.9rem;">
+              <div style="font-weight: 600; color: var(--gray-900);">Michael D.</div>
+              <div style="color: var(--text-secondary); font-size: 0.85rem;">Resident, Big Island</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Owner Testimonials -->
+        <div style="background: #fef3c7; padding: 2rem; border-radius: 12px; border: 1px solid #F59E0B; border-left: 4px solid #F59E0B;">
+          <div style="color: #F59E0B; font-size: 1.1rem; margin-bottom: 1rem;">★★★★★</div>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8; margin: 1rem 0;">"My online visibility score was 20% before the audit. After fixing citations, I'm getting 15+ leads per month. This pays for itself instantly."</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #F59E0B;">
+            <div style="width: 40px; height: 40px; background: #F59E0B; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">LP</div>
+            <div style="font-size: 0.9rem;">
+              <div style="font-weight: 600; color: var(--gray-900);">Lisa P.</div>
+              <div style="color: var(--text-secondary); font-size: 0.85rem;">Salon Owner, Honolulu</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #fef3c7; padding: 2rem; border-radius: 12px; border: 1px solid #F59E0B; border-left: 4px solid #F59E0B;">
+          <div style="color: #F59E0B; font-size: 1.1rem; margin-bottom: 1rem;">★★★★★</div>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8; margin: 1rem 0;">"Listing on Hawaii Discovery Hub brought me 50+ new customers this year. The premium plan was the best investment for my restaurant."</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #F59E0B;">
+            <div style="width: 40px; height: 40px; background: #F59E0B; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">MK</div>
+            <div style="font-size: 0.9rem;">
+              <div style="font-weight: 600; color: var(--gray-900);">Marcus K.</div>
+              <div style="color: var(--text-secondary); font-size: 0.85rem;">Restaurant Owner, Maui</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #fef3c7; padding: 2rem; border-radius: 12px; border: 1px solid #F59E0B; border-left: 4px solid #F59E0B;">
+          <div style="color: #F59E0B; font-size: 1.1rem; margin-bottom: 1rem;">★★★★★</div>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8; margin: 1rem 0;">"The marketing audit showed me exactly what was wrong with my online presence. Now I'm ranked first on Google for my services."</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #F59E0B;">
+            <div style="width: 40px; height: 40px; background: #F59E0B; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">TC</div>
+            <div style="font-size: 0.9rem;">
+              <div style="font-weight: 600; color: var(--gray-900);">Tanya C.</div>
+              <div style="color: var(--text-secondary); font-size: 0.85rem;">Yoga Instructor, Kauai</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

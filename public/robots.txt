@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+
+# Crawl optimization
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://hawaiidiscoveryhub.com/sitemap.xml

@@ -291,10 +291,217 @@ a:hover { text-decoration: underline; }
 }
 .section h2 { font-size: 1.75rem; margin-top: 0; }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .hero h1 { font-size: 1.8rem; }
-  .nav nav a { margin-left: 0.75rem; font-size: 0.9rem; }
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* MOBILE FIRST (<600px) */
+@media (max-width: 599px) {
+  .hero {
+    padding: 2rem 1.5rem !important;
+  }
+  .hero h1 {
+    font-size: 1.3rem;
+    margin: 0 0 0.75rem;
+  }
+  .hero-tagline {
+    font-size: 0.95rem;
+    margin: 0 auto 1.5rem;
+  }
+  .hero-stats {
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .btn, .btn-lg {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+  .section {
+    padding: 1.5rem 1rem;
+  }
+  .listing-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .stats-banner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+  .stat-item .stat-number {
+    font-size: 1.8rem;
+  }
+  .cta-banner {
+    padding: 2rem 1.5rem;
+    margin: 1.5rem auto;
+  }
+  .cta-banner h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.75rem;
+  }
+  .cta-banner p {
+    font-size: 0.95rem;
+  }
+  .toast {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+  .nav nav a {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .section h2 {
+    font-size: 1.3rem;
+  }
+  .tags-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  .obt-branding {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+  .obt-name {
+    font-size: 0.75rem;
+  }
+  .obt-tagline {
+    font-size: 0.55rem;
+  }
+}
+
+/* TABLET (600px - 1023px) */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .hero {
+    padding: 3.5rem 2rem !important;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+  }
+  .hero-tagline {
+    font-size: 1.1rem;
+    margin: 0 auto 2rem;
+  }
+  .hero-stats {
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .hero-buttons {
+    gap: 0.75rem;
+  }
+  .btn, .btn-lg {
+    min-height: 44px;
+    padding: 0.75rem 1.2rem;
+  }
+  .section {
+    padding: 2rem 1.5rem;
+  }
+  .listing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .stats-banner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2.5rem 1.5rem;
+  }
+  .cta-banner {
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+  }
+  .cta-banner h2 {
+    font-size: 2rem;
+    margin: 0 0 0.75rem;
+  }
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  .tags-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+/* DESKTOP (1024px+) */
+@media (min-width: 1024px) {
+  .hero {
+    padding: 5rem 2rem !important;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+    margin: 0 0 1rem;
+  }
+  .hero-tagline {
+    font-size: 1.2rem;
+    margin: 0 auto 2.5rem;
+  }
+  .hero-stats {
+    gap: 3rem;
+    margin: 2.5rem 0;
+  }
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  .btn, .btn-lg {
+    min-height: 44px;
+    padding: 0.8rem 1.5rem;
+  }
+  .section {
+    padding: 3rem 1.5rem;
+  }
+  .listing-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .stats-banner {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+  }
+  .cta-banner {
+    padding: 4rem 2rem;
+    margin: 3rem auto;
+  }
+  .cta-banner h2 {
+    font-size: 2.5rem;
+    margin: 0 0 1rem;
+  }
+  .section h2 {
+    font-size: 1.75rem;
+  }
+  .tags-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  .toast {
+    bottom: 2rem;
+    right: 2rem;
+  }
 }
 /* ========== PHASE 1: MODERN VISUAL REFRESH ========== */
 

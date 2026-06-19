@@ -1,0 +1,31 @@
+[33mcommit aec60039508f59c37b50e29f8e41d1bc4f1b6d59[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Carlos Dias <obtcreations01@gmail.com>
+Date:   Thu Jun 18 18:24:45 2026 +0700
+
+    Phase 1: Visual refresh - teal colors and modern design
+
+.env.example
+.gitignore
+PHASE1_AUTO_IMPLEMENT.ps1
+PHASE1_AUTO_IMPLEMENT_FIXED.ps1
+Procfile
+README.md
+config/database.js
+middleware/auth.js
+migrations/001-initial-schema.sql
+package.json
+public/css/style.css
+public/dashboard.html
+public/directory.html
+public/for-businesses.html
+public/index.html
+public/js/api.js
+public/js/partials.js
+public/js/shared.js
+public/login.html
+public/register.html
+routes/auth.js
+routes/businesses.js
+routes/listings.js
+routes/payments.js
+server.js
