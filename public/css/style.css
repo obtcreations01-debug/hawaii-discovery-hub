@@ -67,35 +67,35 @@ a:hover { text-decoration: underline; }
 /* OBT Consultants Branding */
 .obt-branding {
   position: fixed;
-  top: 1.5rem;
+  top: 4.5rem;
   left: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 0.75rem 1.25rem;
-  border-radius: 10px;
-  border: 2px solid #F59E0B;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: 1.5px solid #F59E0B;
   backdrop-filter: blur(10px);
-  z-index: 100;
+  z-index: 99;
 }
 .obt-logo {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: #F59E0B;
   font-weight: 700;
 }
 .obt-name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.75rem;
   line-height: 1;
   color: #F59E0B;
 }
 .obt-tagline {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 600;
   color: #fff;
-  letter-spacing: 0.5px;
-  margin-top: 0.25rem;
+  letter-spacing: 0.4px;
+  margin-top: 0.15rem;
 }
 .hero-badge {
   display: inline-block; padding: 0.5rem 1.2rem; background: rgba(255, 255, 255, 0.2);
