@@ -13,18 +13,41 @@
 
   <main id="main-content">
     <section class="hero">
-      <h1>Discover the islands, from locals.</h1>
-      <p>A directory of trusted Hawaiian businesses — restaurants, tours, shops, and services — handpicked across all the islands.</p>
-      <form class="search" onsubmit="goSearch(event)">
-        <input id="searchInput" type="search" placeholder="Search businesses, e.g. 'shave ice', 'snorkel'..." />
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
+      <div class="hero-badge">🏠 HAWAII'S LOCAL BUSINESS DIRECTORY</div>
+      <h1>Find the Best Local Businesses Across Every Hawaiian Island</h1>
+      <p class="hero-tagline"><em>Discover. Connect. Thrive Local.</em></p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">LOCAL BUSINESSES</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">6</div>
+          <div class="stat-label">HAWAIIAN ISLANDS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">CATEGORIES</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Free</div>
+          <div class="stat-label">TO BROWSE</div>
+        </div>
+      </div>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary btn-lg" onclick="window.location.href='/directory.html'">🔍 Explore Hawaii Businesses</button>
+        <button class="btn btn-outline btn-lg" onclick="window.location.href='/for-businesses.html'">📝 List My Business</button>
+      </div>
     </section>
 
     <section class="section">
-      <h2>Featured listings</h2>
+      <div class="section-badge">FEATURED LISTINGS</div>
+      <h2>Discover Our Featured Businesses</h2>
+      <p>These Hawaii businesses have enhanced their listings to help you connect faster. See all featured listings across every island.</p>
+      <p class="see-all-link"><a href="/directory.html">See All Featured Listings →</a></p>
       <div id="featuredGrid" class="listing-grid" style="padding: 0;"></div>
-      <p style="margin-top: 1.25rem;"><a href="/directory.html">Browse the full directory →</a></p>
     </section>
 
     <section class="section" style="background: var(--gray-50); border-radius: 12px;">

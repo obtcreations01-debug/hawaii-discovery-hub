@@ -62,8 +62,28 @@ a:hover { text-decoration: underline; }
   color: #fff;
   text-align: center;
 }
-.hero h1 { font-size: 2.5rem; margin: 0 0 1rem; }
+.hero-badge {
+  display: inline-block; padding: 0.5rem 1.2rem; background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 25px; font-size: 0.9rem;
+  font-weight: 600; margin-bottom: 1.5rem; color: #FFD700;
+}
+.hero h1 { font-size: 2.8rem; margin: 0 0 1rem; font-weight: 700; line-height: 1.2; }
+.hero-tagline { font-size: 1.2rem; opacity: 0.95; margin: 0 auto 2.5rem; font-style: italic; }
 .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem; }
+
+.hero-stats {
+  display: flex; justify-content: center; gap: 3rem; margin: 2.5rem 0; flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-number { font-size: 2.2rem; font-weight: 700; color: #FFD700; }
+.stat-label { font-size: 0.85rem; font-weight: 600; opacity: 0.9; margin-top: 0.25rem; }
+
+.hero-buttons {
+  display: flex; gap: 1rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap;
+}
+.btn-outline { background: transparent; border: 2px solid #fff; color: #fff; }
+.btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+
 .hero .search {
   display: flex; gap: 0.5rem; max-width: 520px; margin: 0 auto;
   background: #fff; padding: 0.4rem; border-radius: 10px; box-shadow: var(--shadow-md);
@@ -72,6 +92,15 @@ a:hover { text-decoration: underline; }
   flex: 1; border: 0; padding: 0.75rem 1rem; font-size: 1rem; border-radius: 6px;
 }
 .hero .search input:focus { outline: none; }
+
+/* Section Badges */
+.section-badge {
+  display: inline-block; padding: 0.4rem 1rem; background: #E0F2FE; color: var(--ocean-blue);
+  border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.see-all-link { text-align: center; }
+.see-all-link a { color: var(--ocean-blue); font-weight: 600; }
 
 /* Buttons */
 .btn {
