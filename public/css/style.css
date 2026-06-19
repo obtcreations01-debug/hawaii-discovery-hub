@@ -61,6 +61,38 @@ a:hover { text-decoration: underline; }
   background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-blue));
   color: #fff;
   text-align: center;
+  position: relative;
+}
+
+/* UnBox Locals Branding */
+.unbox-branding {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+.unbox-logo {
+  font-size: 1.8rem;
+}
+.unbox-name {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  color: #fff;
+}
+.unbox-tagline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FFD700;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
 }
 .hero-badge {
   display: inline-block; padding: 0.5rem 1.2rem; background: rgba(255, 255, 255, 0.2);
