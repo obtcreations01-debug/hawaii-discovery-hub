@@ -7,14 +7,14 @@
 
 /* ---- CSS Variables ---- */
 :root {
-  --ocean-blue: #0D9488;
-  --ocean-blue-dark: #0F766E;
-  --ocean-blue-light: #14B8A6;
-  --sunset-orange: #F59E0B;
-  --sunset-orange-dark: #D97706;
-  --sunset-orange-light: #FBBF24;
-  --tropic-green: #10B981;
-  --tropic-green-dark: #059669;
+  --ocean-blue: #1a5f8a;
+  --ocean-blue-dark: #124468;
+  --ocean-blue-light: #2a7ab0;
+  --sunset-orange: #e8722a;
+  --sunset-orange-dark: #c45e1e;
+  --sunset-orange-light: #f08c4a;
+  --tropic-green: #2d8a5e;
+  --tropic-green-dark: #1e6644;
   --sand: #f5f0e8;
   --sand-dark: #e8dfc8;
   --white: #ffffff;
