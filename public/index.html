@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hawaii Discovery Hub — Local businesses across the islands</title>
   <meta name="description" content="Discover the best local businesses across the Hawaiian islands — restaurants, tours, shops, and more." />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <div id="nav-placeholder"></div>
 
   <main id="main-content">
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-badge">🏠 HAWAII'S LOCAL BUSINESS DIRECTORY</div>
       <h1>Find the Best Local Businesses Across Every Hawaiian Island</h1>
@@ -42,6 +43,7 @@
       </div>
     </section>
 
+    <!-- FEATURED LISTINGS SECTION -->
     <section class="section">
       <div class="section-badge">FEATURED LISTINGS</div>
       <h2>Discover Our Featured Businesses</h2>
@@ -50,7 +52,211 @@
       <div id="featuredGrid" class="listing-grid" style="padding: 0;"></div>
     </section>
 
-    <section class="section" style="background: var(--gray-50); border-radius: 12px;">
+    <!-- FREE LISTINGS SECTION -->
+    <section class="section" style="background: var(--gray-50);">
+      <h2>Discover Our Free Listings</h2>
+      <p>Explore local Hawaii businesses that have claimed their free listing.</p>
+      <p>Support small business — search, discover, and connect.</p>
+      <p class="see-all-link"><a href="/directory.html">See All Listings →</a></p>
+    </section>
+
+    <!-- BUSINESSES BY TAGS SECTION -->
+    <section class="section">
+      <div class="section-badge">BROWSE BY TAGS</div>
+      <h2>Businesses by Tags</h2>
+      <p>Explore Hawaii businesses using popular tags — a quick way to discover what the islands have to offer.</p>
+      <p class="see-all-link"><a href="/directory.html">See All Tags →</a></p>
+      <div id="tagsGrid" class="tags-grid"></div>
+    </section>
+
+    <!-- MARKETING AUDIT SECTION -->
+    <section class="section" style="display: flex; gap: 3rem; align-items: center; padding: 4rem 2rem;">
+      <div style="flex: 1;">
+        <div class="section-badge" style="background: #E0F2FE; color: var(--ocean-blue);">FREE MARKETING AUDIT</div>
+        <h2>How Visible Is Your Hawaii Business Online?</h2>
+        <p>79% of customers research businesses online before making a purchase. If your business isn't showing up — or showing up wrong — you're losing customers to your competitors every day.</p>
+        <p>Our free marketing audit checks your Google Business Profile, citation accuracy across 30+ directories, online reputation, and local search ranking — then tells you exactly what to fix.</p>
+        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+          <button class="btn btn-primary btn-lg" onclick="window.location.href='/for-businesses.html'">📋 Get My Free Audit</button>
+          <button class="btn btn-outline btn-lg" style="border-color: var(--ocean-blue); color: var(--ocean-blue); background: white;">ℹ️ Learn More</button>
+        </div>
+      </div>
+      <div style="flex: 1; background: var(--ocean-blue); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
+        <h3 style="color: white;">Sample Business Score</h3>
+        <p style="color: rgba(255,255,255,0.9);">EYC Electric · Honolulu, HI</p>
+        <div style="font-size: 3rem; font-weight: 700; color: #FFD700; margin: 1rem 0;">23%</div>
+        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Overall Online Presence Score</p>
+        <p style="color: #FFD700; font-weight: 600; margin-top: 1rem;">⚠️ NEEDS SIGNIFICANT IMPROVEMENT</p>
+        <div style="margin-top: 1.5rem; text-align: left; font-size: 0.9rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;"><span>Google Business Profile</span><span>40%</span></div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;"><span>Listings Accuracy</span><span>48%</span></div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;"><span>Online Reputation</span><span>25%</span></div>
+          <div style="display: flex; justify-content: space-between;"><span>Business Details</span><span>0%</span></div>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 1.5rem; opacity: 0.8;">Powered by OBT Consultants · Outside the Box Thinkers</p>
+      </div>
+    </section>
+
+    <!-- HOW TO FIND GREAT LOCAL BUSINESSES -->
+    <section class="section">
+      <div class="section-badge">FOR RESIDENTS & VISITORS</div>
+      <h2>How to Find Great Local Hawaii Businesses</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: var(--ocean-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem;">1</div>
+          <h3>Search or Browse</h3>
+          <p>Search by name, category, or tag — or browse by your island. Find exactly what you need from Oahu to Lanai.</p>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: var(--ocean-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem;">2</div>
+          <h3>Read & Compare</h3>
+          <p>View detailed profiles with hours, photos, reviews, contact info, and location — everything you need to decide.</p>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: var(--ocean-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem;">3</div>
+          <h3>Connect & Support Local</h3>
+          <p>Call, visit, or message the business directly. Support local Hawaii businesses and keep your community thriving.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO GROW YOUR BUSINESS -->
+    <section class="section" style="background: var(--gray-50);">
+      <div class="section-badge">FOR BUSINESS OWNERS</div>
+      <h2>How to Grow Your Hawaii Business</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: #F59E0B; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem;">1</div>
+          <h3>Get Your Free Audit</h3>
+          <p>See exactly how your business appears online. We check your Google profile, listings, and reputation score — free.</p>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: #F59E0B; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem;">2</div>
+          <h3>Claim or Create Listing</h3>
+          <p>Add your business to the Hawaii Discovery Hub directory. A free listing gets you found by locals searching for your services.</p>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: #F59E0B; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem;">3</div>
+          <h3>Upgrade for More Visibility</h3>
+          <p>Upgrade to Standard or Aloha Pro to unlock featured placement, priority ranking, and lead generation tools.</p>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; background: #F59E0B; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem;">4</div>
+          <h3>Grow & Get More Leads</h3>
+          <p>Watch your calls, clicks, and new customers increase as your local presence grows across Hawaii's islands.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <button class="btn btn-primary btn-lg" style="background: #F59E0B; border-color: #F59E0B;" onclick="window.location.href='/for-businesses.html'">📁 Start Growing Today</button>
+      </div>
+    </section>
+
+    <!-- STATS BANNER -->
+    <section class="stats-banner">
+      <div class="stat-item">
+        <div class="stat-number">79%</div>
+        <p>of customers research online before buying</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">6</div>
+        <p>Hawaiian islands covered</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30+</div>
+        <p>directories checked in our audit</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$0</div>
+        <p>to browse the directory — always free</p>
+      </div>
+    </section>
+
+    <!-- COMMUNITY VOICES SECTION -->
+    <section class="section">
+      <div class="section-badge">COMMUNITY VOICES</div>
+      <h2>What Hawaii People Are Saying</h2>
+      <p>Hear from residents, visitors, and business owners across the islands who use and list in the Hawaii Discovery Hub.</p>
+      <div id="testimonials" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+        <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--gray-200);">
+          <div style="color: #FFD700; font-size: 1.1rem; margin-bottom: 1rem;">★★★★★</div>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8;">"I found the best plumber in Kailua through the Discovery Hub. The listing had everything — hours, reviews, phone, and address. Booked within 5 minutes. A real time saver."</p>
+        </div>
+        <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--gray-200);">
+          <div style="color: #FFD700; font-size: 1.1rem; margin-bottom: 1rem;">★★★★★</div>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8;">"Visiting from the mainland and this directory was a lifesaver! Found an amazing snorkel tour and a local plate lunch spot in Maui — both amazing. Exactly what I needed."</p>
+        </div>
+        <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--gray-200);">
+          <div style="color: #FFD700; font-size: 1.1rem; margin-bottom: 1rem;">★★★★☆</div>
+          <p style="font-style: italic; color: var(--gray-700); line-height: 1.8;">"Before listing here, my online score was 20%. OBT ran the audit, fixed my citations, and now I'm getting calls from new customers I never would have reached. Worth every penny."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="section" style="background: var(--gray-50);">
+      <div class="section-badge">MEMBERSHIP PLANS</div>
+      <h2>Simple, Honest Pricing for Hawaii Businesses</h2>
+      <p>Start free and upgrade when you're ready. All plans include a listing in the Hawaii Discovery Hub directory.</p>
+      <div id="pricing" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+        <div style="background: white; border: 1px solid var(--gray-200); border-radius: 12px; padding: 2rem; text-align: center;">
+          <div style="color: var(--ocean-blue); font-weight: 600; margin-bottom: 1rem;">FREE</div>
+          <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">$0<span style="font-size: 1rem; font-weight: 400;"> /mo</span></div>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Get discovered at no cost</p>
+          <ul style="text-align: left; list-style: none; padding: 0; margin-bottom: 2rem;">
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Basic business listing</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Island & category placement</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Business name, address & phone</li>
+            <li style="padding: 0.5rem 0; color: var(--gray-300);">✗ Priority placement</li>
+            <li style="padding: 0.5rem 0; color: var(--gray-300);">✗ Lead capture tools</li>
+            <li style="padding: 0.5rem 0; color: var(--gray-300);">✗ Featured badge</li>
+          </ul>
+          <button class="btn btn-outline" style="width: 100%; border-color: var(--ocean-blue); color: var(--ocean-blue);">Get Started Free</button>
+        </div>
+        <div style="background: white; border: 2px solid var(--ocean-blue); border-radius: 12px; padding: 2rem; text-align: center; position: relative; transform: scale(1.05);">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--ocean-blue); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">MOST POPULAR</div>
+          <div style="color: var(--ocean-blue); font-weight: 600; margin-bottom: 1rem; margin-top: 0.5rem;">STANDARD</div>
+          <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">$49<span style="font-size: 1rem; font-weight: 400;"> /mo</span></div>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Priority placement & lead tools</p>
+          <ul style="text-align: left; list-style: none; padding: 0; margin-bottom: 2rem;">
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Everything in Free</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Priority directory placement</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Photo gallery (up to 10 photos)</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Lead capture contact form</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Review response tools</li>
+            <li style="padding: 0.5rem 0; color: var(--gray-300);">✗ Homepage featured spot</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%; background: var(--ocean-blue);">Choose Standard</button>
+        </div>
+        <div style="background: white; border: 1px solid var(--gray-200); border-radius: 12px; padding: 2rem; text-align: center;">
+          <div style="color: #F59E0B; font-weight: 600; margin-bottom: 1rem;">ALOHA PRO</div>
+          <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">$99<span style="font-size: 1rem; font-weight: 400;"> /mo</span></div>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Full done-for-you visibility</p>
+          <ul style="text-align: left; list-style: none; padding: 0; margin-bottom: 2rem;">
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Everything in Standard</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Homepage featured placement</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Citation cleanup across 30+ directories</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Monthly GBP posts & management</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Free marketing audit ($250 value)</li>
+            <li style="padding: 0.5rem 0; color: var(--ocean-blue);">✓ Dedicated OBT account manager</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%; background: #F59E0B; border-color: #F59E0B;">Choose Aloha Pro</button>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 1.5rem; color: var(--text-secondary);">Save 20% with annual billing. <a href="/for-businesses.html" style="color: var(--ocean-blue); font-weight: 600;">See full comparison →</a></p>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="cta-banner">
+      <h2>Ready to Discover Hawaii's Best Local Businesses?</h2>
+      <p>Explore hundreds of trusted businesses across every Hawaiian island — from Oahu to Lanai. Free to browse, always.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <button class="btn btn-primary btn-lg" style="background: #F59E0B; border-color: #F59E0B;" onclick="window.location.href='/directory.html'">🔍 Explore the Directory</button>
+        <button class="btn btn-outline btn-lg" style="border-color: white; color: white;" onclick="window.location.href='/for-businesses.html'">📋 Get Free Business Audit</button>
+      </div>
+    </section>
+
+    <!-- BUSINESS CTA SECTION (for second fold) -->
+    <section class="section">
       <h2>Own a Hawaiian business?</h2>
       <p>List your business on Hawaii Discovery Hub and reach travelers and locals looking for the real thing.</p>
       <a class="btn btn-primary btn-lg" href="/for-businesses.html">List your business</a>
