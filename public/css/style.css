@@ -64,8 +64,8 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 
-/* UnBox Locals Branding */
-.unbox-branding {
+/* OBT Consultants Branding */
+.obt-branding {
   position: fixed;
   top: 1.5rem;
   left: 1.5rem;
@@ -79,19 +79,21 @@ a:hover { text-decoration: underline; }
   backdrop-filter: blur(10px);
   z-index: 100;
 }
-.unbox-logo {
+.obt-logo {
   font-size: 1.8rem;
-}
-.unbox-name {
+  color: #F59E0B;
   font-weight: 700;
-  font-size: 1rem;
+}
+.obt-name {
+  font-weight: 700;
+  font-size: 0.9rem;
   line-height: 1;
   color: #fff;
 }
-.unbox-tagline {
-  font-size: 0.75rem;
+.obt-tagline {
+  font-size: 0.65rem;
   font-weight: 600;
-  color: #FFD700;
+  color: #F59E0B;
   letter-spacing: 0.5px;
   margin-top: 0.25rem;
 }
