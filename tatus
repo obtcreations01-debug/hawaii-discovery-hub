@@ -1,0 +1,39 @@
+[33mcommit 3cbe7627a685fd0678686c57c01c80c414d25b83[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Carlos Dias <obtcreations01@gmail.com>
+Date:   Sat Jun 20 23:47:49 2026 +0700
+
+    Simplify routing - let static middleware serve files
+
+M	server.js
+
+[33mcommit 714a77588ca7e155e3006b942f09f10980d02add[m
+Author: Carlos Dias <obtcreations01@gmail.com>
+Date:   Sat Jun 20 23:43:53 2026 +0700
+
+    Serve actual files, fallback to index.html for SPA routes
+
+M	server.js
+
+[33mcommit 5df04a0c1d67e44ed6dfa6f7f24ec301744890f1[m
+Author: Carlos Dias <obtcreations01@gmail.com>
+Date:   Sat Jun 20 23:39:30 2026 +0700
+
+    Fix routing to check if file exists before SPA fallback
+
+M	server.js
+
+[33mcommit da74b347add0cd35432444874ac9a4f7e0a3ab61[m
+Author: Carlos Dias <obtcreations01@gmail.com>
+Date:   Sat Jun 20 23:34:20 2026 +0700
+
+    Fix routing to allow HTML files to load
+
+M	server.js
+
+[33mcommit 33d34444517eacdf14c39d7c7dc5342f7915eca6[m
+Author: Carlos Dias <obtcreations01@gmail.com>
+Date:   Sat Jun 20 23:22:58 2026 +0700
+
+    Add contact/free audit page
+
+A	public/contact.html
