@@ -66,18 +66,9 @@ app.use('/api/businesses', businessesRoutes);
 const PUBLIC_DIR = path.join(__dirname, 'public');
 app.use(express.static(PUBLIC_DIR, { extensions: ['html'] }));
 
-// SPA fallback — serve actual files, otherwise serve index.html
-const fs = require('fs');
-app.get(/^\/(?!api).*$/, (req, res, next) => {
-  const filePath = path.join(PUBLIC_DIR, req.path);
-
-  if (fs.existsSync(filePath)) {
-    return res.sendFile(filePath);
-  }
-
-  res.sendFile(path.join(PUBLIC_DIR, 'index.html'), (err) => {
-    if (err) next();
-  });
+// SPA fallback — only for root and unknown routes
+app.get('/', (req, res) => {
+  res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
 });
 
 // API 404
