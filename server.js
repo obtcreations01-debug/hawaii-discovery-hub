@@ -66,17 +66,15 @@ app.use('/api/businesses', businessesRoutes);
 const PUBLIC_DIR = path.join(__dirname, 'public');
 app.use(express.static(PUBLIC_DIR, { extensions: ['html'] }));
 
-// SPA-ish fallback — only redirect to index.html for root and non-file paths
+// SPA fallback — serve actual files, otherwise serve index.html
+const fs = require('fs');
 app.get(/^\/(?!api).*$/, (req, res, next) => {
   const filePath = path.join(PUBLIC_DIR, req.path);
-  const fs = require('fs');
 
-  // If it's a file that exists, let static middleware handle it
   if (fs.existsSync(filePath)) {
-    return next();
+    return res.sendFile(filePath);
   }
 
-  // Otherwise, serve index.html (for SPA routing)
   res.sendFile(path.join(PUBLIC_DIR, 'index.html'), (err) => {
     if (err) next();
   });
