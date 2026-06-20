@@ -16,7 +16,6 @@ CREATE TABLE IF NOT EXISTS users (
   deleted_at TIMESTAMP
 );
 
--- Businesses table
 CREATE TABLE IF NOT EXISTS businesses (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -48,7 +47,6 @@ CREATE TABLE IF NOT EXISTS businesses (
   deleted_at TIMESTAMP
 );
 
--- Listings table
 CREATE TABLE IF NOT EXISTS listings (
   id SERIAL PRIMARY KEY,
   business_id INTEGER REFERENCES businesses(id) ON DELETE CASCADE,
@@ -60,7 +58,6 @@ CREATE TABLE IF NOT EXISTS listings (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Payments table
 CREATE TABLE IF NOT EXISTS payments (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id),
@@ -79,7 +76,6 @@ CREATE TABLE IF NOT EXISTS payments (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Subscriptions table
 CREATE TABLE IF NOT EXISTS subscriptions (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -96,7 +92,6 @@ CREATE TABLE IF NOT EXISTS subscriptions (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Audit scores table
 CREATE TABLE IF NOT EXISTS audit_scores (
   id SERIAL PRIMARY KEY,
   business_id INTEGER REFERENCES businesses(id) ON DELETE CASCADE,
@@ -109,7 +104,6 @@ CREATE TABLE IF NOT EXISTS audit_scores (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Reviews table
 CREATE TABLE IF NOT EXISTS reviews (
   id SERIAL PRIMARY KEY,
   business_id INTEGER REFERENCES businesses(id) ON DELETE CASCADE,
@@ -127,7 +121,6 @@ CREATE TABLE IF NOT EXISTS reviews (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create indexes
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
 CREATE INDEX IF NOT EXISTS idx_businesses_user_id ON businesses(user_id);
 CREATE INDEX IF NOT EXISTS idx_businesses_island ON businesses(island);
@@ -135,4 +128,5 @@ CREATE INDEX IF NOT EXISTS idx_businesses_category ON businesses(category);
 CREATE INDEX IF NOT EXISTS idx_listings_business_id ON listings(business_id);
 CREATE INDEX IF NOT EXISTS idx_payments_user_id ON payments(user_id);
 CREATE INDEX IF NOT EXISTS idx_subscriptions_user_id ON subscriptions(user_id);
-CREATE INDEX IF NOT EXISTS idx_subscriptions_stripe_id ON subscriptions(stripe_subscriptio
+CREATE INDEX IF NOT EXISTS idx_subscriptions_stripe_id ON subscriptions(stripe_subscription_id);
+CREATE INDEX IF NOT EXISTS idx_reviews_business_id ON reviews(business_id);
