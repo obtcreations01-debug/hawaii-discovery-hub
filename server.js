@@ -4,10 +4,10 @@ const path = require('path');
 require('dotenv').config();
 
 // Routes
-const authRoutes = require('./routes/auth');
-const listingsRoutes = require('./routes/listings');
-const paymentsRoutes = require('./routes/payments');
-const businessesRoutes = require('./routes/businesses');
+//const authRoutes = require('./routes/auth');
+//const listingsRoutes = require('./routes/listings');
+//const paymentsRoutes = require('./routes/payments');
+//const businessesRoutes = require('./routes/businesses');
 
 const app = express();
 
@@ -57,10 +57,10 @@ app.get('/api/health', (req, res) => {
 });
 
 // API
-app.use('/api/auth', authRoutes);
-app.use('/api/listings', listingsRoutes);
-app.use('/api/payments', paymentsRoutes);
-app.use('/api/businesses', businessesRoutes);
+//app.use('/api/auth', authRoutes);
+//app.use('/api/listings', listingsRoutes);
+//app.use('/api/payments', paymentsRoutes);
+//app.use('/api/businesses', businessesRoutes);
 
 // Static frontend
 const PUBLIC_DIR = path.join(__dirname, 'public');
@@ -90,7 +90,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   const env = process.env.NODE_ENV || 'development';
   console.log(`Hawaii Discovery Hub - ${env} - listening on port ${PORT}`);
