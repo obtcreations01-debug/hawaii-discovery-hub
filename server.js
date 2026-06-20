@@ -66,8 +66,8 @@ app.use('/api/businesses', businessesRoutes);
 const PUBLIC_DIR = path.join(__dirname, 'public');
 app.use(express.static(PUBLIC_DIR, { extensions: ['html'] }));
 
-// SPA-ish fallback for any non-API path
-app.get(/^\/(?!api).*/, (req, res, next) => {
+// SPA-ish fallback — only for non-file paths (no dots)
+app.get(/^\/(?!api)(?!.*\.).*$/, (req, res, next) => {
   res.sendFile(path.join(PUBLIC_DIR, 'index.html'), (err) => {
     if (err) next();
   });
